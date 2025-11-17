@@ -24,8 +24,10 @@ def load_model():
 
 @st.cache_resource
 def load_tokenizer():
-    with open("tokenizer.json") as f:
-        return tokenizer_from_json(json.load(f))
+    with open("tokenizer.json", "r") as f:
+        data = f.read()       # read raw JSON text
+        return tokenizer_from_json(data)
+
 
 model = load_model()
 tokenizer = load_tokenizer()
